@@ -11,7 +11,9 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as ToolsIndexRouteImport } from './routes/tools.index'
+import { Route as ToolsTiktokScriptGeneratorRouteImport } from './routes/tools.tiktok-script-generator'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -23,38 +25,69 @@ const BlogIndexRoute = BlogIndexRouteImport.update({
   path: '/blog/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ToolsIndexRoute = ToolsIndexRouteImport.update({
   id: '/tools/',
   path: '/tools/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolsTiktokScriptGeneratorRoute =
+  ToolsTiktokScriptGeneratorRouteImport.update({
+    id: '/tools/tiktok-script-generator',
+    path: '/tools/tiktok-script-generator',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/tools/tiktok-script-generator': typeof ToolsTiktokScriptGeneratorRoute
   '/blog/': typeof BlogIndexRoute
   '/tools/': typeof ToolsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/tools/tiktok-script-generator': typeof ToolsTiktokScriptGeneratorRoute
   '/blog': typeof BlogIndexRoute
   '/tools': typeof ToolsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/tools/tiktok-script-generator': typeof ToolsTiktokScriptGeneratorRoute
   '/blog/': typeof BlogIndexRoute
   '/tools/': typeof ToolsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/blog/' | '/tools/'
+  fullPaths:
+    | '/'
+    | '/blog/$slug'
+    | '/tools/tiktok-script-generator'
+    | '/blog/'
+    | '/tools/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/blog' | '/tools'
-  id: '__root__' | '/' | '/blog/' | '/tools/'
+  to:
+    '/' | '/blog/$slug' | '/tools/tiktok-script-generator' | '/blog' | '/tools'
+  id:
+    | '__root__'
+    | '/'
+    | '/blog/$slug'
+    | '/tools/tiktok-script-generator'
+    | '/blog/'
+    | '/tools/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BlogSlugRoute: typeof BlogSlugRoute
+  ToolsTiktokScriptGeneratorRoute: typeof ToolsTiktokScriptGeneratorRoute
   BlogIndexRoute: typeof BlogIndexRoute
   ToolsIndexRoute: typeof ToolsIndexRoute
 }
@@ -75,6 +108,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tools/': {
       id: '/tools/'
       path: '/tools'
@@ -82,11 +122,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tools/tiktok-script-generator': {
+      id: '/tools/tiktok-script-generator'
+      path: '/tools/tiktok-script-generator'
+      fullPath: '/tools/tiktok-script-generator'
+      preLoaderRoute: typeof ToolsTiktokScriptGeneratorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BlogSlugRoute: BlogSlugRoute,
+  ToolsTiktokScriptGeneratorRoute: ToolsTiktokScriptGeneratorRoute,
   BlogIndexRoute: BlogIndexRoute,
   ToolsIndexRoute: ToolsIndexRoute,
 }

@@ -47,7 +47,8 @@ export const Route = createFileRoute("/blog/$slug")({
 });
 
 function ArticlePage() {
-  const { post } = Route.useLoaderData();
+  const { slug } = Route.useParams();
+  const post = getPost(slug)!;
   const related = posts.filter((p) => post.relatedPosts.includes(p.slug));
 
   return (
