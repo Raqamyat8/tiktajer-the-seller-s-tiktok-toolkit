@@ -22,12 +22,8 @@ export const Route = createFileRoute("/tools/image-optimizer")({
     ],
     links: [{ rel: "canonical", href: "/tools/image-optimizer" }],
   }),
-  component: Optimizer;
+  component: Optimizer,
 });
-
-function ImageOptimizerPage() {
-  return null;
-}
 
 function Optimizer() {
   const [src, setSrc] = useState<string | null>(null);
