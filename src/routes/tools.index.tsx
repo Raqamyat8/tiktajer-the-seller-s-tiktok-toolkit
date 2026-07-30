@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Container, PageHero } from "../components/layout-bits";
 import { toolMeta } from "../data/posts";
 
-export const Route = createFileRoute("/tools")({
+export const Route = createFileRoute("/tools/")({
   head: () => ({
     meta: [
       { title: "أدوات تيك توك المجانية للتجار | تيك تاجر" },

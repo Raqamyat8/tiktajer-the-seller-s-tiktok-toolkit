@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { posts } from "../data/posts";
 import { Container, PageHero } from "../components/layout-bits";
 
-export const Route = createFileRoute("/blog")({
+export const Route = createFileRoute("/blog/")({
   head: () => ({
     meta: [
       { title: "مدونة تيك تاجر | أدلة التسويق على تيك توك للمتاجر" },
