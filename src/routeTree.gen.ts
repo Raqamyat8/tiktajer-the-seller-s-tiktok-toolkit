@@ -10,33 +10,156 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContactUsRouteImport } from './routes/contact-us'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as TermsOfServiceRouteImport } from './routes/terms-of-service'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as ToolsIndexRouteImport } from './routes/tools.index'
+import { Route as ToolsImageOptimizerRouteImport } from './routes/tools.image-optimizer'
+import { Route as ToolsTiktokContentPlannerRouteImport } from './routes/tools.tiktok-content-planner'
+import { Route as ToolsTiktokScriptGeneratorRouteImport } from './routes/tools.tiktok-script-generator'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactUsRoute = ContactUsRouteImport.update({
+  id: '/contact-us',
+  path: '/contact-us',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsOfServiceRoute = TermsOfServiceRouteImport.update({
+  id: '/terms-of-service',
+  path: '/terms-of-service',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolsIndexRoute = ToolsIndexRouteImport.update({
+  id: '/tools/',
+  path: '/tools/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolsImageOptimizerRoute = ToolsImageOptimizerRouteImport.update({
+  id: '/tools/image-optimizer',
+  path: '/tools/image-optimizer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolsTiktokContentPlannerRoute =
+  ToolsTiktokContentPlannerRouteImport.update({
+    id: '/tools/tiktok-content-planner',
+    path: '/tools/tiktok-content-planner',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ToolsTiktokScriptGeneratorRoute =
+  ToolsTiktokScriptGeneratorRouteImport.update({
+    id: '/tools/tiktok-script-generator',
+    path: '/tools/tiktok-script-generator',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contact-us': typeof ContactUsRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/terms-of-service': typeof TermsOfServiceRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/tools/image-optimizer': typeof ToolsImageOptimizerRoute
+  '/tools/tiktok-content-planner': typeof ToolsTiktokContentPlannerRoute
+  '/tools/tiktok-script-generator': typeof ToolsTiktokScriptGeneratorRoute
+  '/blog/': typeof BlogIndexRoute
+  '/tools/': typeof ToolsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contact-us': typeof ContactUsRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/terms-of-service': typeof TermsOfServiceRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/tools/image-optimizer': typeof ToolsImageOptimizerRoute
+  '/tools/tiktok-content-planner': typeof ToolsTiktokContentPlannerRoute
+  '/tools/tiktok-script-generator': typeof ToolsTiktokScriptGeneratorRoute
+  '/blog': typeof BlogIndexRoute
+  '/tools': typeof ToolsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contact-us': typeof ContactUsRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/terms-of-service': typeof TermsOfServiceRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/tools/image-optimizer': typeof ToolsImageOptimizerRoute
+  '/tools/tiktok-content-planner': typeof ToolsTiktokContentPlannerRoute
+  '/tools/tiktok-script-generator': typeof ToolsTiktokScriptGeneratorRoute
+  '/blog/': typeof BlogIndexRoute
+  '/tools/': typeof ToolsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/contact-us'
+    | '/privacy-policy'
+    | '/terms-of-service'
+    | '/blog/$slug'
+    | '/tools/image-optimizer'
+    | '/tools/tiktok-content-planner'
+    | '/tools/tiktok-script-generator'
+    | '/blog/'
+    | '/tools/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/contact-us'
+    | '/privacy-policy'
+    | '/terms-of-service'
+    | '/blog/$slug'
+    | '/tools/image-optimizer'
+    | '/tools/tiktok-content-planner'
+    | '/tools/tiktok-script-generator'
+    | '/blog'
+    | '/tools'
+  id:
+    | '__root__'
+    | '/'
+    | '/contact-us'
+    | '/privacy-policy'
+    | '/terms-of-service'
+    | '/blog/$slug'
+    | '/tools/image-optimizer'
+    | '/tools/tiktok-content-planner'
+    | '/tools/tiktok-script-generator'
+    | '/blog/'
+    | '/tools/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactUsRoute: typeof ContactUsRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  TermsOfServiceRoute: typeof TermsOfServiceRoute
+  BlogSlugRoute: typeof BlogSlugRoute
+  ToolsImageOptimizerRoute: typeof ToolsImageOptimizerRoute
+  ToolsTiktokContentPlannerRoute: typeof ToolsTiktokContentPlannerRoute
+  ToolsTiktokScriptGeneratorRoute: typeof ToolsTiktokScriptGeneratorRoute
+  BlogIndexRoute: typeof BlogIndexRoute
+  ToolsIndexRoute: typeof ToolsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,22 +171,84 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact-us': {
+      id: '/contact-us'
+      path: '/contact-us'
+      fullPath: '/contact-us'
+      preLoaderRoute: typeof ContactUsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms-of-service': {
+      id: '/terms-of-service'
+      path: '/terms-of-service'
+      fullPath: '/terms-of-service'
+      preLoaderRoute: typeof TermsOfServiceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/': {
+      id: '/tools/'
+      path: '/tools'
+      fullPath: '/tools/'
+      preLoaderRoute: typeof ToolsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/image-optimizer': {
+      id: '/tools/image-optimizer'
+      path: '/tools/image-optimizer'
+      fullPath: '/tools/image-optimizer'
+      preLoaderRoute: typeof ToolsImageOptimizerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/tiktok-content-planner': {
+      id: '/tools/tiktok-content-planner'
+      path: '/tools/tiktok-content-planner'
+      fullPath: '/tools/tiktok-content-planner'
+      preLoaderRoute: typeof ToolsTiktokContentPlannerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/tiktok-script-generator': {
+      id: '/tools/tiktok-script-generator'
+      path: '/tools/tiktok-script-generator'
+      fullPath: '/tools/tiktok-script-generator'
+      preLoaderRoute: typeof ToolsTiktokScriptGeneratorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactUsRoute: ContactUsRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
+  TermsOfServiceRoute: TermsOfServiceRoute,
+  BlogSlugRoute: BlogSlugRoute,
+  ToolsImageOptimizerRoute: ToolsImageOptimizerRoute,
+  ToolsTiktokContentPlannerRoute: ToolsTiktokContentPlannerRoute,
+  ToolsTiktokScriptGeneratorRoute: ToolsTiktokScriptGeneratorRoute,
+  BlogIndexRoute: BlogIndexRoute,
+  ToolsIndexRoute: ToolsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
